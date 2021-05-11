@@ -25,7 +25,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", index);
+app.get("/", (req, res, next) => {
+    res.status(200);
+    res.send("Hola mundo");
+});
 
 app.use("/user", user);
 app.use(auth);
